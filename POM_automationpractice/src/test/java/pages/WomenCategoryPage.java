@@ -2,6 +2,7 @@ package pages;
 
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.support.FindBy;
 
 import static config.WebDriverSingleton.driver;
 
