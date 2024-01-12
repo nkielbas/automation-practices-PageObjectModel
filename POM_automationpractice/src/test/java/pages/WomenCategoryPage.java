@@ -2,6 +2,8 @@ package pages;
 
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import static config.WebDriverSingleton.driver;
 
@@ -14,7 +16,7 @@ public class WomenCategoryPage extends BasePage {
     @FindBy(className = "ajax_add_to_cart_button")
     private WebElement addToCartButton;
 
-    @FindBy(id = "layer_cart")
+    @FindBy(css = "a.btn.btn-default.button.button-medium")
     private WebElement addToCartPopup;
 
     @Step
@@ -25,6 +27,6 @@ public class WomenCategoryPage extends BasePage {
     @Step
     public void addToCart (){
         addToCartButton.click();
-        Assertions.assertTrue(addToCartPopup.isDisplayed(), "The pop up is not displayed");
+        Assertions.assertTrue(addToCartPopup.isEnabled(), "The pop up is not displayed");
     }
 }
