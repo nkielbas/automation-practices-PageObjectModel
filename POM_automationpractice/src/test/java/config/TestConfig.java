@@ -21,7 +21,7 @@ public class TestConfig {
         driver.get(baseUrl);
     }
 
-   @AfterEach
+  @AfterEach
    public void after () {
        quit();
    }
