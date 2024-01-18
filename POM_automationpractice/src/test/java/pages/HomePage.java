@@ -27,6 +27,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@class='blockbestsellers' and contains(@href, 'blockbestsellers')]")
     private WebElement BestsellerTab;
 
+    @FindBy(id = "search_query_top")
+    private WebElement searchbox;
+
     @Step
     public SignInPage openSignInPage() {
         signInButton.click();
@@ -51,6 +54,13 @@ public class HomePage extends BasePage {
 
         BestsellerTab.click();
         return new HomePageWithBestsellerTab();
+    }
+
+    @Step
+    public SearchingResultPage SearchingProducts(String searchTerm){
+        searchbox.sendKeys(searchTerm);
+        searchbox.submit();
+        return new SearchingResultPage();
     }
 }
 
