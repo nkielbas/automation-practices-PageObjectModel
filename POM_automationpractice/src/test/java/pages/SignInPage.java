@@ -1,16 +1,9 @@
 package pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import tools.DataFaker;
-
-import java.time.Duration;
-
-import static config.WebDriverSingleton.driver;
 
     public class SignInPage extends BasePage {
 
@@ -44,9 +37,6 @@ import static config.WebDriverSingleton.driver;
         public SignUpPage submitCreateAccountForm() {
             emailEntry(faker.FakeEmail());
             createAccountButton.click();
-            Duration waitTime = Duration.ofSeconds(5);
-            WebDriverWait wait = new WebDriverWait(driver, waitTime);
-            wait.until(ExpectedConditions.elementToBeClickable(By.id("id_gender1")));
             return new SignUpPage();
         }
 
