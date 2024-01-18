@@ -14,14 +14,13 @@ public class HomePageWithBestsellerTab extends BasePage {
         super();
     }
     @Step
-    public void checkingOpeningBestsellerTab() {
-        WebElement ulElement = driver.findElement(By.id("home-page-tabs"));
-        List<WebElement> liElements = ulElement.findElements(By.tagName("li"));
-        for (WebElement li : liElements) {
+       public void checkingOpeningBestsellerTab() {
+        List<WebElement> Tabs = driver.findElements(By.xpath("//ul[@id='home-page-tabs']/li"));
+        for (WebElement li : Tabs) {
             String classAttributeValue = li.getAttribute("class");
             if(classAttributeValue.contains("active")){
-                WebElement aElement = li.findElement(By.tagName("a"));
-                Assertions.assertTrue(aElement.getAttribute("class").contains("blockbestsellers"), "Incorret tab is active");
+                WebElement activeClass = li.findElement(By.tagName("a"));
+                Assertions.assertTrue(activeClass.getAttribute("class").contains("blockbestsellers"), "Incorret tab is active");
                 break;
             }
         }
