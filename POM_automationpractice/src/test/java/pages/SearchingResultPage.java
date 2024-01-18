@@ -13,18 +13,16 @@ public class SearchingResultPage extends BasePage{
     public SearchingResultPage() {
         super();
     }
+    private String searchTermUpperFirstLetter;
+    private String searchTermLowerFirstLetter;
     @Step
     public void checkingSearchingResult(String searchTerm){
         List<WebElement> searchingProducts = driver.findElements(By.xpath("//ul[@class='product_list grid row']//a[@class='product-name']"));
-        String searchTermUpperFirstLetter = "";
-        String searchTermLowerFirstLetter = "";
-
         if (!searchTerm.isEmpty())
         {
             searchTermUpperFirstLetter = searchTerm.substring(0,1).toUpperCase() + searchTerm.substring(1);
             searchTermLowerFirstLetter = searchTerm.substring(0,1).toLowerCase() + searchTerm.substring(1);
         }
-
         for (WebElement product : searchingProducts) {
             String productTitle = product.getAttribute("title");
             Assertions.assertTrue(productTitle.contains(searchTermUpperFirstLetter) || productTitle.contains(searchTermLowerFirstLetter),"Existing product does not match the conditional search");
