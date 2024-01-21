@@ -16,7 +16,7 @@ public class WomenCategoryPage extends BasePage {
     @FindBy(className = "ajax_add_to_cart_button")
     private WebElement addToCartButton;
 
-    @FindBy(css = "a.btn.btn-default.button.button-medium")
+    @FindBy(css = "a[class='btn btn-default button button-medium']")
     private WebElement addToCartPopup;
 
     @Step
